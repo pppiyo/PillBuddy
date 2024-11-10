@@ -2,6 +2,8 @@
 
 import { z } from "zod";
 import axios from "axios";
+import pillDatabase from './pillDatabase.json';
+
 
 import {
     defineDAINService,
@@ -11,21 +13,31 @@ import {
     ServiceContext,
 } from "@dainprotocol/service-sdk";
 
-type Pill = {
+interface Pill {
     name: string;
     color: string;
     shape: string;
     imprint: string;
-};
-
-function queryPillDatabase(color: string, shape: string, imprint: string): Pill {
-    return {
-        name: "dummy",
-        color: color,
-        shape: shape,
-        imprint: imprint
-    };
+    url: string;
 }
+
+// const pillDatabase: Pill[] = [
+//     { name: "Aspirin", color: "white", shape: "round", imprint: "A1" },
+//     { name: "Ibuprofen", color: "orange", shape: "capsule", imprint: "I2" },
+//     { name: "Acetaminophen", color: "white", shape: "oval", imprint: "A3" },
+//     // Add more entries as needed
+// ];
+
+function queryPillDatabase(color: string, shape: string, imprint: string): Pill | null {
+    // Search for a pill matching all criteria
+    const result = pillDatabase.find(
+        pill => pill.color === color && pill.shape === shape && pill.imprint === imprint
+    );
+
+    // Return the matching pill or null if not found
+    return result || null;
+}
+
 
 const getPillConfig: ToolConfig = {
     id: "get-pill",
@@ -43,7 +55,9 @@ const getPillConfig: ToolConfig = {
             name: z.string().describe("name of the pill"),
             color: z.string().describe("color of the pill"),
             shape: z.string().describe("shape of the pill"),
-            imprint: z.string().describe("imprint on the pill")
+            imprint: z.string().describe("imprint on the pill"),
+            url: z.string().describe("url of the pill"),
+
         })
         .describe("Returned pill information"),
     pricing: { pricePerUse: 0, currency: "USD" },
@@ -56,22 +70,38 @@ const getPillConfig: ToolConfig = {
 
 
         return {
-            text: `The pill this patient is searching for is ${response.name} . Paramaeters given were ${response.color}, ${response.shape}`,
+            text: `The pill this patient is searching for is ${response.name} . Parameters given were ${response.color}, ${response.shape}`,
             data: {
                 name: response.name,
                 color: response.color,
                 shape: response.shape,
                 imprint: response.imprint,
+                url: response.url,
             },
             ui: {
-                // type: "card",
-                // uiData: JSON.stringify({ title: "Results" }),
-                // children: [
-                //     {
-                //         type: "table",
-                //         uiData: JSON.stringify({ title: "Simple Card" })
-                //     }
-                // ]
+                type: "table",
+                uiData: JSON.stringify({
+                    columns: [
+                        { key: "drug", header: "Drug", width: "40%" },
+                        { key: "color", header: "Color", width: "40%" },
+                        { key: "shape", header: "Shape", width: "40%" },
+                        { key: "imprint", header: "Imprint", width: "40%" },
+                        { key: "url", header: "Link", type: "link", width: "40%" }
+                    ],
+                    rows: [
+                        {
+                            drug: response.name,
+                            color: response.color,
+                            shape: response.shape,
+                            imprint: response.imprint,
+                            url: {
+                                text: "See Details",
+                                url: response.url
+                            }
+                        }
+                    ]
+                })
+
             },
         };
     },
@@ -131,7 +161,7 @@ const dainService = defineDAINService({
         description:
             "A DAIN service for current weather and forecasts using Open-Meteo API",
         version: "1.0.0",
-        author: "Your Name",
+        author: " Name",
         tags: ["weather", "forecast", "dain"],
         logo: "https://cdn-icons-png.flaticon.com/512/252/252035.png"
     },
