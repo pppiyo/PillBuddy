@@ -1,4 +1,4 @@
-# PillBuddy
+# Pill Buddy
 
 ## What it does
 - Helps elderly patients identify their medications through simple voice and/or text inputs.
