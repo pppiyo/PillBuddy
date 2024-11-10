@@ -25,7 +25,7 @@ Please bear with me if my voice sounded drowsy, that's because I was. Try workin
 
 - Pinpointed a valuable pain point in an important industry and successfully fleshed out the idea from scratch.
 - _**Amazing teammates**_ and smooth collaboration process.
-- Last but not least, _**We built a meaningful & working AI product within only one day!!!!**_
+- Last but not least, _**built a meaningful & working AI product within only one day!!!!**_
 
 ## What's next for PillBuddy
 
