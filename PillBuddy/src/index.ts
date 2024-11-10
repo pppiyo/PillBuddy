@@ -12,7 +12,7 @@ import {
 
 interface Pill {
     name: string;
-    image_url: string; // img url to be more exact. but use image to avoid confusion with url.
+    image_url: string;
     color: string;
     shape: string;
     imprint: string;
@@ -22,34 +22,24 @@ interface Pill {
 async function queryPillDatabase(
     color: string,
     shape: string,
-    imprint?: string,
-    maxRetries: number = 5,
-    retryDelay: number = 500 // delay in milliseconds
+    imprint?: string
 ): Promise<Pill[]> {
-    let attempts = 0;
-
-    while (attempts < maxRetries) {
-        // Find all pills that match the criteria
-        const matchingPills = pillDatabase.filter(pill => {
-            if (imprint) {
-                return pill.color === color && pill.shape === shape && pill.imprint === imprint;
-            } else {
-                return pill.color === color && pill.shape === shape;
-            }
-        });
-
-        if (matchingPills.length > 0) {
-            return matchingPills;
+    // Find all pills that match the criteria
+    const matchingPills = pillDatabase.filter(pill => {
+        if (imprint) {
+            return pill.color === color && pill.shape === shape && pill.imprint === imprint;
+        } else {
+            return pill.color === color && pill.shape === shape;
         }
+    });
 
-        // Wait for the specified delay before retrying
-        await new Promise(resolve => setTimeout(resolve, retryDelay));
-        attempts += 1;
-        console.log(`Retry attempt ${attempts}...`);
+    // Return the matching pills immediately, without retry logic
+    if (matchingPills.length > 0) {
+        return matchingPills;
     }
 
-    // If no pills were found after max retries, return an empty array
-    console.error("No pills found after max retries.");
+    // If no pills were found, return an empty array
+    console.error("No matching pills found in the database.");
     return [];
 }
 

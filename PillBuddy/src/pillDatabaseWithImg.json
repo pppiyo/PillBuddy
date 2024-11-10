@@ -3,7 +3,7 @@
         "name": "Abilify 5 mg tablet",
         "color": "blue",
         "shape": "rectangular",
-        "imprint": "A-007  5",
+        "imprint": "A-007 5",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/BMS00070.jpg",
         "url": "https://www.webmd.com/drugs/2/drug-64439-4274/abilify/details"
     },
@@ -19,7 +19,7 @@
         "name": "Adderall XR 5 mg capsule,extended release",
         "color": "clear,blue",
         "shape": "oblong",
-        "imprint": "ADDERALL  XR 5mg",
+        "imprint": "ADDERALL XR 5mg",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/SHR03811.jpg",
         "url": "https://www.webmd.com/drugs/2/drug-63164-9323/adderall-xr/details"
     },
@@ -27,7 +27,7 @@
         "name": "Ativan 2 mg tablet",
         "color": "white",
         "shape": "five-sided",
-        "imprint": "A  2 BPI  65",
+        "imprint": "A 2 BPI 65",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/BVL00650.jpg",
         "url": "https://www.webmd.com/drugs/2/drug-6685-5244/ativan/details"
     },
@@ -41,7 +41,7 @@
     },
     {
         "name": "Benadryl 25 mg capsule",
-        "color": "light yellow",
+        "color": "yellow",
         "shape": "oblong",
         "imprint": "Benadryl",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/MCN01700.jpg",
@@ -49,7 +49,7 @@
     },
     {
         "name": "bupropion HCl XL 300 mg 24 hr tablet, extended release",
-        "color": "off-white",
+        "color": "white",
         "shape": "round",
         "imprint": "L016",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/LUP03200.jpg",
@@ -65,7 +65,7 @@
     },
     {
         "name": "clindamycin HCl 300 mg capsule",
-        "color": "turquoise blue",
+        "color": "blue",
         "shape": "oblong",
         "imprint": "RX693 RX693",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/RBX06930.jpg",
@@ -81,9 +81,9 @@
     },
     {
         "name": "Cymbalta 30 mg capsule,delayed release",
-        "color": "white,blue",
+        "color": "white and blue",
         "shape": "oblong",
-        "imprint": "30 mg LILLY  3240",
+        "imprint": "30 mg LILLY 3240",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/LLY32400.jpg",
         "url": "https://www.webmd.com/drugs/2/drug-91491-404/cymbalta/details"
     },
@@ -105,7 +105,7 @@
     },
     {
         "name": "Flagyl 375 mg capsule",
-        "color": "light green, iron gray",
+        "color": "green and gray",
         "shape": "oblong",
         "imprint": "FLAGYL 375 mg",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/SEA19420.jpg",
@@ -131,7 +131,7 @@
         "name": "Keppra 250 mg tablet",
         "color": "blue",
         "shape": "oblong",
-        "imprint": "ucb  250",
+        "imprint": "ucb 250",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/WHB05910.jpg",
         "url": "https://www.webmd.com/drugs/2/drug-18053-4019/keppra/details"
     },
@@ -201,7 +201,7 @@
     },
     {
         "name": "phentermine 15 mg capsule",
-        "color": "yellow,gray",
+        "color": "yellow and gray",
         "shape": "oblong",
         "imprint": "EL600 EL600",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/TAG02030.jpg",
@@ -217,9 +217,9 @@
     },
     {
         "name": "Wellbutrin XL 150 mg 24 hr tablet, extended release",
-        "color": "creamy white",
+        "color": "white",
         "shape": "round",
-        "imprint": "WELLBUTRIN  XL  150",
+        "imprint": "WELLBUTRIN XL 150",
         "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/GSK07300.jpg",
         "url": "https://www.webmd.com/drugs/2/drug-76851-2471/wellbutrin-xl/details"
     }
