@@ -85,53 +85,36 @@ const getPillConfig: ToolConfig = {
         }
 
         // Build rows dynamically based on response data
-        try {
-            const rows = response.map(pill => ({
-                drug: pill.name,
-                image: pill.image_url,
-                color: pill.color,
-                shape: pill.shape,
-                imprint: pill.imprint,
-                url: {
-                    text: "See Details",
-                    url: pill.url
-                }
-            }))
+        const rows = response.map(pill => ({
+            drug: pill.name,
+            image: pill.image_url,
+            color: pill.color,
+            shape: pill.shape,
+            imprint: pill.imprint,
+            url: {
+                text: "See Details",
+                url: pill.url
+            }
+        }));
 
-            return {
-                text: `Found ${response.length} matching pill(s) based on the provided criteria.`,
-                data: response,
-                ui: {
-                    type: "table",
-                    uiData: JSON.stringify({
-                        columns: [
-                            { key: "drug", header: "Drug(s)", width: "20%" },
-                            { key: "image", header: "Image", type: "image", width: "40%" },
-                            { key: "color", header: "Color", width: "15%" },
-                            { key: "shape", header: "Shape", width: "15%" },
-                            { key: "imprint", header: "Imprint", width: "15%" },
-                            { key: "url", header: "Link", type: "link", width: "15%" }
-                        ],
-                        rows: rows
-                    })
-                },
-            };
-        }
-        catch (error) {
-            console.error("Error finding matching pills:", error);
-            return {
-              text: "Failed to find matching pills",
-              data: { error: "Failed to find matching pills" },
-              ui: {
-                type: "alert",
+        return {
+            text: `Found ${response.length} matching pill(s) based on the provided criteria.`,
+            data: response,
+            ui: {
+                type: "table",
                 uiData: JSON.stringify({
-                  type: "error",
-                  title: "Error",
-                  message: "Failed to find matching pills."
+                    columns: [
+                        { key: "drug", header: "Drug(s)", width: "20%" },
+                        { key: "image", header: "Image", type: "image", width: "40%" },
+                        { key: "color", header: "Color", width: "15%" },
+                        { key: "shape", header: "Shape", width: "15%" },
+                        { key: "imprint", header: "Imprint", width: "15%" },
+                        { key: "url", header: "Link", type: "link", width: "15%" }
+                    ],
+                    rows: rows
                 })
-              }
-            };
-        }
+            },
+        };
     },
 };
 
