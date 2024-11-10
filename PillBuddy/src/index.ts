@@ -1,9 +1,6 @@
-//File: example/example-node.ts
-
 import { z } from "zod";
 import axios from "axios";
-import pillDatabase from './pillDatabase.json';
-
+import pillDatabase from './pillDatabaseWithImg.json';
 
 import {
     defineDAINService,
@@ -15,6 +12,7 @@ import {
 
 interface Pill {
     name: string;
+    image_url: string; // img url to be more exact. but use image to avoid confusion with url.
     color: string;
     shape: string;
     imprint: string;
@@ -56,8 +54,8 @@ async function queryPillDatabase(
 }
 
 const getPillConfig: ToolConfig = {
-    id: "get-pill",
-    name: "Get Pill",
+    id: "pill_buddy",
+    name: "Pill Buddy",
     description: "Get the pill for a certain patient",
     input: z
         .object({
@@ -69,6 +67,7 @@ const getPillConfig: ToolConfig = {
     output: z
         .object({
             name: z.string().describe("name of the pill"),
+            image_url: z.string().describe("image of the pill"),
             color: z.string().describe("color of the pill"),
             shape: z.string().describe("shape of the pill"),
             imprint: z.string().describe("imprint on the pill"),
@@ -98,6 +97,7 @@ const getPillConfig: ToolConfig = {
         // Build rows dynamically based on response data
         const rows = response.map(pill => ({
             drug: pill.name,
+            image: pill.image_url,
             color: pill.color,
             shape: pill.shape,
             imprint: pill.imprint,
@@ -114,11 +114,12 @@ const getPillConfig: ToolConfig = {
                 type: "table",
                 uiData: JSON.stringify({
                     columns: [
-                        { key: "drug", header: "Drug(s)", width: "40%" },
-                        { key: "color", header: "Color", width: "40%" },
-                        { key: "shape", header: "Shape", width: "40%" },
-                        { key: "imprint", header: "Imprint", width: "40%" },
-                        { key: "url", header: "Link", type: "link", width: "40%" }
+                        { key: "drug", header: "Drug(s)", width: "20%" },
+                        { key: "image", header: "Image", type: "image", width: "40%" },
+                        { key: "color", header: "Color", width: "15%" },
+                        { key: "shape", header: "Shape", width: "15%" },
+                        { key: "imprint", header: "Imprint", width: "15%" },
+                        { key: "url", header: "Link", type: "link", width: "15%" }
                     ],
                     rows: rows
                 })
@@ -126,143 +127,6 @@ const getPillConfig: ToolConfig = {
         };
     },
 };
-
-
-// const getPillConfig: ToolConfig = {
-//     id: "get-pill",
-//     name: "Get Pill",
-//     description: "Get the pill for a certain patient",
-//     input: z
-//         .object({
-//             color: z.string().describe("color of the pill"),
-//             shape: z.string().describe("shape of the pill"),
-//             imprint: z.string().optional().describe("imprint on the pill, which is optional")
-//         })
-//         .describe("Input parameters for the pill request"),
-//     output: z
-//         .object({
-//             name: z.string().describe("name of the pill"),
-//             color: z.string().describe("color of the pill"),
-//             shape: z.string().describe("shape of the pill"),
-//             imprint: z.string().describe("imprint on the pill"),
-//             url: z.string().describe("url of the pill"),
-
-//         })
-//         .describe("Returned pill information"),
-//     pricing: { pricePerUse: 0, currency: "USD" },
-//     handler: async ({ color, shape, imprint }, agentInfo) => {
-//         console.log(
-//             `User / Agent ${agentInfo.id} requested pill at ${color},${shape},${imprint}`
-//         );
-
-//         const response = await queryPillDatabase(color, shape, imprint);
-
-//         if (!response) {
-//             return {
-//                 text: "No matching pill found in the database.",
-//                 data: null,
-//                 ui: {
-//                     type: "text",
-//                     uiData: "No matching pill found."
-//                 }
-//             };
-//         }
-
-//         return {
-//             text: `The pill this patient is searching for is ${response.name} . Parameters given were ${response.color}, ${response.shape}`,
-//             data: {
-//                 name: response.name,
-//                 color: response.color,
-//                 shape: response.shape,
-//                 imprint: response.imprint,
-//                 url: response.url,
-//             },
-//             ui: {
-//                 type: "table",
-//                 uiData: JSON.stringify({
-//                     columns: [
-//                         { key: "drug", header: "Drug", width: "40%" },
-//                         { key: "color", header: "Color", width: "40%" },
-//                         { key: "shape", header: "Shape", width: "40%" },
-//                         { key: "imprint", header: "Imprint", width: "40%" },
-//                         { key: "url", header: "Link", type: "link", width: "40%" }
-//                     ],
-//                     rows: [
-//                         {
-//                             drug: response.name,
-//                             color: response.color,
-//                             shape: response.shape,
-//                             imprint: response.imprint,
-//                             url: {
-//                                 text: "See Details",
-//                                 url: response.url
-//                             }
-//                         },
-//                         {
-//                             drug: response.name,
-//                             color: response.color,
-//                             shape: response.shape,
-//                             imprint: response.imprint,
-//                             url: {
-//                                 text: "See Details",
-//                                 url: response.url
-//                             }
-//                         }
-//                     ]
-//                 })
-
-//             },
-//         };
-//     },
-// };
-
-// const getWeatherForecastConfig: ToolConfig = {
-//     id: "get-weather-forecast",
-//     name: "Get Weather Forecast",
-//     description: "Fetches hourly weather forecast",
-//     input: z
-//         .object({
-//             latitude: z.number().describe("Latitude coordinate"),
-//             longitude: z.number().describe("Longitude coordinate"),
-//         })
-//         .describe("Input parameters for the forecast request"),
-//     output: z
-//         .object({
-//             times: z.array(z.string()).describe("Forecast times"),
-//             temperatures: z
-//                 .array(z.number())
-//                 .describe("Temperature forecasts in Celsius"),
-//             windSpeeds: z.array(z.number()).describe("Wind speed forecasts in km/h"),
-//             humidity: z
-//                 .array(z.number())
-//                 .describe("Relative humidity forecasts in %"),
-//         })
-//         .describe("Hourly weather forecast"),
-//     pricing: { pricePerUse: 0, currency: "USD" },
-//     handler: async ({ latitude, longitude }, agentInfo) => {
-//         console.log(
-//             `User / Agent ${agentInfo.id} requested forecast at ${latitude},${longitude}`
-//         );
-
-//         const response = await axios.get(
-//             `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`
-//         );
-
-//         const { time, temperature_2m, wind_speed_10m, relative_humidity_2m } =
-//             response.data.hourly;
-
-//         return {
-//             text: `Weather forecast available for the next ${time.length} hours`,
-//             data: {
-//                 times: time,
-//                 temperatures: temperature_2m,
-//                 windSpeeds: wind_speed_10m,
-//                 humidity: relative_humidity_2m,
-//             },
-//             ui: {},
-//         };
-//     },
-// };
 
 const dainService = defineDAINService({
     metadata: {
@@ -278,9 +142,8 @@ const dainService = defineDAINService({
         apiKey: process.env.DAIN_API_KEY,
     },
     tools: [getPillConfig],
-    // tools: [getPillConfig, getWeatherForecastConfig],
 });
 
 dainService.startNode({ port: 2022 }).then(() => {
-    console.log("Weather DAIN Service is running on port 2022");
+    console.log("Pill Buddy DAIN Service is running on port 2022");
 });
