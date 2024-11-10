@@ -1,0 +1,226 @@
+[
+  {
+    "name": "Abilify 5 mg tablet",
+    "color": "blue",
+    "shape": "rectangular",
+    "imprint": "A-007  5",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/BMS00070.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-64439-4274/abilify/details"
+  },
+  {
+    "name": "acyclovir 800 mg tablet",
+    "color": "white",
+    "shape": "oval",
+    "imprint": "logo and 5307",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/ATX53070.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-941-9069/acyclovir/details"
+  },
+  {
+    "name": "Adderall XR 5 mg capsule,extended release",
+    "color": "clear,blue",
+    "shape": "oblong",
+    "imprint": "ADDERALL  XR 5mg",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/SHR03811.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-63164-9323/adderall-xr/details"
+  },
+  {
+    "name": "Ativan 2 mg tablet",
+    "color": "white",
+    "shape": "five-sided",
+    "imprint": "A  2 BPI  65",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/BVL00650.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-6685-5244/ativan/details"
+  },
+  {
+    "name": "baclofen 10 mg tablet",
+    "color": "white",
+    "shape": "round",
+    "imprint": "024",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/TRU03200.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-8615-7087/baclofen/details"
+  },
+  {
+    "name": "Benadryl 25 mg capsule",
+    "color": "light yellow",
+    "shape": "oblong",
+    "imprint": "Benadryl",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/MCN01700.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-5680-5282/benadryl/details"
+  },
+  {
+    "name": "bupropion HCl XL 300 mg 24 hr tablet, extended release",
+    "color": "off-white",
+    "shape": "round",
+    "imprint": "L016",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/LUP03200.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-13507-2471/bupropion-xl/details"
+  },
+  {
+    "name": "Cialis 20 mg tablet",
+    "color": "yellow",
+    "shape": "almond",
+    "imprint": "C20",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/LLY4464Z.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-77881-8297/cialis/details"
+  },
+  {
+    "name": "clindamycin HCl 300 mg capsule",
+    "color": "turquoise blue",
+    "shape": "oblong",
+    "imprint": "RX693 RX693",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/RBX06930.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-12235-16/clindamycin-hcl/details"
+  },
+  {
+    "name": "Concerta 36 mg tablet,extended release",
+    "color": "white",
+    "shape": "oblong",
+    "imprint": "alza 36",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/MCN58510.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-19857-5094/concerta/details"
+  },
+  {
+    "name": "Cymbalta 30 mg capsule,delayed release",
+    "color": "white,blue",
+    "shape": "oblong",
+    "imprint": "30 mg LILLY  3240",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/LLY32400.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-91491-404/cymbalta/details"
+  },
+  {
+    "name": "Depakote 250 mg tablet,delayed release",
+    "color": "peach",
+    "shape": "oval",
+    "imprint": "logo and NR",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/ABT62140.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-1788-8019/depakote/details"
+  },
+  {
+    "name": "Dilaudid 2 mg tablet",
+    "color": "orange",
+    "shape": "round",
+    "imprint": "P 2",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/RHO04520.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-9130-850/dilaudid/details"
+  },
+  {
+    "name": "Flagyl 375 mg capsule",
+    "color": "light green,iron gray",
+    "shape": "oblong",
+    "imprint": "FLAGYL 375 mg",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/SEA19420.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-7644-55/flagyl/details"
+  },
+  {
+    "name": "hydrocodone 5 mg-acetaminophen 325 mg tablet",
+    "color": "white",
+    "shape": "oblong",
+    "imprint": "M365",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/MKR03650.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-251-4352/hydrocodone-acetaminophen/details"
+  },
+  {
+    "name": "hydroxyzine HCl 25 mg tablet",
+    "color": "white",
+    "shape": "round",
+    "imprint": "TV 308",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/TEV50610.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-7681-992/hydroxyzine-hcl/details"
+  },
+  {
+    "name": "Keppra 250 mg tablet",
+    "color": "blue",
+    "shape": "oblong",
+    "imprint": "ucb  250",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/WHB05910.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-18053-4019/keppra/details"
+  },
+  {
+    "name": "levothyroxine 25 mcg tablet",
+    "color": "orange",
+    "shape": "oblong",
+    "imprint": "T 4 25",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/FOR13200.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-1433-7074/levothyroxine-sodium/details"
+  },
+  {
+    "name": "methadone 10 mg/mL oral concentrate",
+    "color": "colorless",
+    "shape": "",
+    "imprint": "",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/ROX03910.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-2671-1278/methadone-hcl/details"
+  },
+  {
+    "name": "methocarbamol 750 mg tablet",
+    "color": "white",
+    "shape": "oblong",
+    "imprint": "612 logo",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/OXP06120.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-8677-1105/methocarbamol/details"
+  },
+  {
+    "name": "methylprednisolone 4 mg tablets in a dose pack",
+    "color": "white",
+    "shape": "oval",
+    "imprint": "916",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/ZYD09160.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-6470-419/methylprednisolone/details"
+  },
+  {
+    "name": "metronidazole 500 mg tablet",
+    "color": "white",
+    "shape": "oblong",
+    "imprint": "K 11",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/AUR06950.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-6426-55/metronidazole/details"
+  },
+  {
+    "name": "morphine ER 90 mg capsule,extended release 24 hr multiphase",
+    "color": "green",
+    "shape": "oblong",
+    "imprint": "logo and 3092 logo and 3092",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/ACT05001.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-327-9352/morphine-sulfate-er-capsule-multiphase-24-hr/details"
+  },
+  {
+    "name": "OxyContin 40 mg tablet,crush resistant,extended release",
+    "color": "yellow",
+    "shape": "round",
+    "imprint": "OP 40",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/PUR04402.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-2798-2278/oxycontin/details"
+  },
+  {
+    "name": "Percocet 10 mg-325 mg tablet",
+    "color": "yellow",
+    "shape": "oblong",
+    "imprint": "PERCOCET 10-325",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/END06290.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-7277-5352/percocet/details"
+  },
+  {
+    "name": "phentermine 15 mg capsule",
+    "color": "yellow,gray",
+    "shape": "oblong",
+    "imprint": "EL600 EL600",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/TAG02030.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-4151-740/phentermine-hcl/details"
+  },
+  {
+    "name": "promethazine 25 mg tablet",
+    "color": "white",
+    "shape": "round",
+    "imprint": "logo and 0 2",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/ZYP00410.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-8895-9053/promethazine-hcl/details"
+  },
+  {
+    "name": "Wellbutrin XL 150 mg 24 hr tablet, extended release",
+    "color": "creamy white",
+    "shape": "round",
+    "imprint": "WELLBUTRIN  XL  150",
+    "image_url": "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/GSK07300.jpg",
+    "url": "https://www.webmd.com/drugs/2/drug-76851-2471/wellbutrin-xl/details"
+  }
+]

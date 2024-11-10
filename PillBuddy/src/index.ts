@@ -21,23 +21,39 @@ interface Pill {
     url: string;
 }
 
-// const pillDatabase: Pill[] = [
-//     { name: "Aspirin", color: "white", shape: "round", imprint: "A1" },
-//     { name: "Ibuprofen", color: "orange", shape: "capsule", imprint: "I2" },
-//     { name: "Acetaminophen", color: "white", shape: "oval", imprint: "A3" },
-//     // Add more entries as needed
-// ];
+async function queryPillDatabase(
+    color: string,
+    shape: string,
+    imprint?: string,
+    maxRetries: number = 5,
+    retryDelay: number = 500 // delay in milliseconds
+): Promise<Pill[]> {
+    let attempts = 0;
 
-function queryPillDatabase(color: string, shape: string, imprint: string): Pill | null {
-    // Search for a pill matching all criteria
-    const result = pillDatabase.find(
-        pill => pill.color === color && pill.shape === shape && pill.imprint === imprint
-    );
+    while (attempts < maxRetries) {
+        // Find all pills that match the criteria
+        const matchingPills = pillDatabase.filter(pill => {
+            if (imprint) {
+                return pill.color === color && pill.shape === shape && pill.imprint === imprint;
+            } else {
+                return pill.color === color && pill.shape === shape;
+            }
+        });
 
-    // Return the matching pill or null if not found
-    return result || null;
+        if (matchingPills.length > 0) {
+            return matchingPills;
+        }
+
+        // Wait for the specified delay before retrying
+        await new Promise(resolve => setTimeout(resolve, retryDelay));
+        attempts += 1;
+        console.log(`Retry attempt ${attempts}...`);
+    }
+
+    // If no pills were found after max retries, return an empty array
+    console.error("No pills found after max retries.");
+    return [];
 }
-
 
 const getPillConfig: ToolConfig = {
     id: "get-pill",
@@ -47,7 +63,7 @@ const getPillConfig: ToolConfig = {
         .object({
             color: z.string().describe("color of the pill"),
             shape: z.string().describe("shape of the pill"),
-            imprint: z.string().describe("imprint on the pill")
+            imprint: z.string().optional().describe("imprint on the pill, which is optional")
         })
         .describe("Input parameters for the pill request"),
     output: z
@@ -57,8 +73,8 @@ const getPillConfig: ToolConfig = {
             shape: z.string().describe("shape of the pill"),
             imprint: z.string().describe("imprint on the pill"),
             url: z.string().describe("url of the pill"),
-
         })
+        .array()
         .describe("Returned pill information"),
     pricing: { pricePerUse: 0, currency: "USD" },
     handler: async ({ color, shape, imprint }, agentInfo) => {
@@ -66,18 +82,34 @@ const getPillConfig: ToolConfig = {
             `User / Agent ${agentInfo.id} requested pill at ${color},${shape},${imprint}`
         );
 
-        const response = queryPillDatabase(color, shape, imprint);
+        const response = await queryPillDatabase(color, shape, imprint);
 
+        if (response.length === 0) {
+            return {
+                text: "No matching pill found in the database.",
+                data: null,
+                ui: {
+                    type: "text",
+                    uiData: "No matching pill found."
+                }
+            };
+        }
+
+        // Build rows dynamically based on response data
+        const rows = response.map(pill => ({
+            drug: pill.name,
+            color: pill.color,
+            shape: pill.shape,
+            imprint: pill.imprint,
+            url: {
+                text: "See Details",
+                url: pill.url
+            }
+        }));
 
         return {
-            text: `The pill this patient is searching for is ${response.name} . Parameters given were ${response.color}, ${response.shape}`,
-            data: {
-                name: response.name,
-                color: response.color,
-                shape: response.shape,
-                imprint: response.imprint,
-                url: response.url,
-            },
+            text: `Found ${response.length} matching pill(s) based on the provided criteria.`,
+            data: response,
             ui: {
                 type: "table",
                 uiData: JSON.stringify({
@@ -88,24 +120,101 @@ const getPillConfig: ToolConfig = {
                         { key: "imprint", header: "Imprint", width: "40%" },
                         { key: "url", header: "Link", type: "link", width: "40%" }
                     ],
-                    rows: [
-                        {
-                            drug: response.name,
-                            color: response.color,
-                            shape: response.shape,
-                            imprint: response.imprint,
-                            url: {
-                                text: "See Details",
-                                url: response.url
-                            }
-                        }
-                    ]
+                    rows: rows
                 })
-
             },
         };
     },
 };
+
+
+// const getPillConfig: ToolConfig = {
+//     id: "get-pill",
+//     name: "Get Pill",
+//     description: "Get the pill for a certain patient",
+//     input: z
+//         .object({
+//             color: z.string().describe("color of the pill"),
+//             shape: z.string().describe("shape of the pill"),
+//             imprint: z.string().optional().describe("imprint on the pill, which is optional")
+//         })
+//         .describe("Input parameters for the pill request"),
+//     output: z
+//         .object({
+//             name: z.string().describe("name of the pill"),
+//             color: z.string().describe("color of the pill"),
+//             shape: z.string().describe("shape of the pill"),
+//             imprint: z.string().describe("imprint on the pill"),
+//             url: z.string().describe("url of the pill"),
+
+//         })
+//         .describe("Returned pill information"),
+//     pricing: { pricePerUse: 0, currency: "USD" },
+//     handler: async ({ color, shape, imprint }, agentInfo) => {
+//         console.log(
+//             `User / Agent ${agentInfo.id} requested pill at ${color},${shape},${imprint}`
+//         );
+
+//         const response = await queryPillDatabase(color, shape, imprint);
+
+//         if (!response) {
+//             return {
+//                 text: "No matching pill found in the database.",
+//                 data: null,
+//                 ui: {
+//                     type: "text",
+//                     uiData: "No matching pill found."
+//                 }
+//             };
+//         }
+
+//         return {
+//             text: `The pill this patient is searching for is ${response.name} . Parameters given were ${response.color}, ${response.shape}`,
+//             data: {
+//                 name: response.name,
+//                 color: response.color,
+//                 shape: response.shape,
+//                 imprint: response.imprint,
+//                 url: response.url,
+//             },
+//             ui: {
+//                 type: "table",
+//                 uiData: JSON.stringify({
+//                     columns: [
+//                         { key: "drug", header: "Drug", width: "40%" },
+//                         { key: "color", header: "Color", width: "40%" },
+//                         { key: "shape", header: "Shape", width: "40%" },
+//                         { key: "imprint", header: "Imprint", width: "40%" },
+//                         { key: "url", header: "Link", type: "link", width: "40%" }
+//                     ],
+//                     rows: [
+//                         {
+//                             drug: response.name,
+//                             color: response.color,
+//                             shape: response.shape,
+//                             imprint: response.imprint,
+//                             url: {
+//                                 text: "See Details",
+//                                 url: response.url
+//                             }
+//                         },
+//                         {
+//                             drug: response.name,
+//                             color: response.color,
+//                             shape: response.shape,
+//                             imprint: response.imprint,
+//                             url: {
+//                                 text: "See Details",
+//                                 url: response.url
+//                             }
+//                         }
+//                     ]
+//                 })
+
+//             },
+//         };
+//     },
+// };
 
 // const getWeatherForecastConfig: ToolConfig = {
 //     id: "get-weather-forecast",
@@ -157,12 +266,12 @@ const getPillConfig: ToolConfig = {
 
 const dainService = defineDAINService({
     metadata: {
-        title: "Weather DAIN Service",
+        title: "Pill Buddy Service",
         description:
-            "A DAIN service for current weather and forecasts using Open-Meteo API",
+            "A DAIN service for pill finding",
         version: "1.0.0",
         author: " Name",
-        tags: ["weather", "forecast", "dain"],
+        tags: ["medication", "pill", "AI", "dain"],
         logo: "https://cdn-icons-png.flaticon.com/512/252/252035.png"
     },
     identity: {
