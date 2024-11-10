@@ -114,7 +114,7 @@ const getPillConfig: ToolConfig = {
                 type: "table",
                 uiData: JSON.stringify({
                     columns: [
-                        { key: "drug", header: "Drug", width: "40%" },
+                        { key: "drug", header: "Drug(s)", width: "40%" },
                         { key: "color", header: "Color", width: "40%" },
                         { key: "shape", header: "Shape", width: "40%" },
                         { key: "imprint", header: "Imprint", width: "40%" },
