@@ -1,4 +1,6 @@
 # Pill Buddy
+## Team Information
+- Developed by 4 people within 10 hours from finding an idea to the finished product.
 
 ## What it does
 - Helps elderly patients identify their medications through simple voice and/or text inputs.
@@ -18,8 +20,8 @@ Please bear with me if my voice sounded drowsy, that's because I was. Try workin
 ## Challenges
 
 - Finding a meaningful problem to work on
-- Quickly learn AI development and DAIN platform from scratch
 - Define the scope of project based on limited time and resources
+- Quickly learn AI development and the DAIN platform from scratch
 
 ## Accomplishments
 
