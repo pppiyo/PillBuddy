@@ -1,6 +1,6 @@
 # Pill Buddy
-## Team Information
-- Developed by 4 people within 10 hours from finding an idea to the finished product.
+## Background
+- Created by a team of four in just 10 hours—from idea to finished product—during HackSC on Nov 9-10, 2024.
 
 ## What it does
 - Helps elderly patients identify their medications through simple voice and/or text inputs.
