@@ -26,10 +26,11 @@ Please bear with me if my voice sounded drowsy, that's because I was. Try workin
 
 ## Accomplishments
 
-- Pinpointed a valuable pain point in an important industry and successfully fleshed out the idea from scratch.
+- "Identified a critical pain point in a key industry and developed a comprehensive solution from the ground up."
 - _**Amazing teammates**_ and smooth collaboration process.
 - Last but not least, _**built a meaningful & working AI product within only one day!!!!**_
-- Received Honorable Mention Award.
+- Received **Honorable Mention Award**.
+  
   ![WhatsApp Image 2024-11-19 at 11 16 19](https://github.com/user-attachments/assets/1ecc9af5-6b2b-47c2-b2e9-33e683b88dff)
 
   
