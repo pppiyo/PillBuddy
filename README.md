@@ -26,7 +26,7 @@ Please bear with me if my voice sounded drowsy, that's because I was. Try workin
 
 ## Accomplishments
 
-- "Identified a critical pain point in a key industry and developed a comprehensive solution from the ground up."
+- Identified a critical pain point in a key industry and developed a comprehensive solution from the ground up.
 - _**Amazing teammates**_ and smooth collaboration process.
 - Last but not least, _**built a meaningful & working AI product within only one day!!!!**_
 - Received **Honorable Mention Award**.
