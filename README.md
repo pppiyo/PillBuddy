@@ -8,7 +8,7 @@
 - Assists pharmacy staffs, pharmacy techs, and pharmacists shortlist the pills patient was talking about.
 
 ## Inspiration
-A former pharmacy technician on our team noticed that many elderly patients, especially those on multiple medications, struggle to identify their pills and often rely on visual appearance. Since they’re not very tech-savvy, they frequently call the pharmacy, requiring time-consuming searches by pharmacists. This inspired us to develop an AI solution to quickly narrow down potential pills based on patients' descriptions, streamlining the process.
+A former pharmacy technician on our team noticed that many elderly patients, especially those on multiple medications, struggle to identify their pills and often rely on visual appearance. Since they’re not very tech-savvy, they frequently call the pharmacy, requiring time-consuming searches by pharmacists. This inspired us to develop an AI solution to quickly narrow down potential pills based on patients' descriptions, making life easier for pharmacists.
 
 ## Video demo
 [Click me to watch the demo video](https://www.youtube.com/watch?v=JZBk3cQkZDA) <br><br>
