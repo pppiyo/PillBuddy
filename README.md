@@ -1,6 +1,6 @@
 # Pill Buddy
 ## About
-- Created by a team of four in just 10 hours—from idea to finished product—during HackSC in November, 2024.
+- Created by a team of 4 in just 10 hours, from idea to finished product, during HackSC (Nov 2024).
 - Received Honorable Mention Award.
 
 ## What it does
